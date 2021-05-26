@@ -1,3 +1,6 @@
+Ana Laura 
+Ejemplo
+
 mysql -u root -p
 use information_schema;
 desc tables;
