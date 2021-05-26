@@ -1,15 +1,16 @@
 Ana Laura 
-Ejemplo
+Ejemplo de consultas
+
 
 mysql -u root -p
 use information_schema;
 desc tables;
 
 ---
-select table_name "Tabla", case when data_length/1024>1 then concat(data_length/1024," Kb") else concat(data_length, " Bytes")
+select table_name "Tabla", case when data_length/1024>1 then concat(data_length/1024," Kilobytes") else concat(data_length, " Bytes")
 end as "Tamaño" from tables where table_schema="mysql";
 
 
 --- Mostrar el tamaño promedio de las tablas, número de tablas y cantidad total de registros de las bases de datos.
- select table_schema "Bases de datos", avg(data_length+index_length) "Tamaño promedio de tablas",count(*) 
-"Total de tablas",sum(table_rows) "Cantidad total de registros" from tables group by table_schema;
+ select table_schema "Bd", avg(data_length+index_length) "Tamaño promedio de tablas",count(*) 
+"Total tablas",sum(table_rows) "Cantidad total" from tables group by table_schema;
